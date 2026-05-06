@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ProductCard } from "@/components/ProductCard";
 import { MerchantCard } from "@/components/MerchantCard";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -95,11 +96,13 @@ function Index() {
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
             style={{ animation: "var(--animate-fade-up)", animationDelay: "0.2s" }}
           >
-            <button type="button" className="btn-glow">
+            <a href="#categorias" className="btn-glow">
               Explorar marketplace
-            </button>
-            <button
-              type="button"
+            </a>
+            <a
+              href={getWhatsAppUrl("Hola, soy comerciante y quiero publicar mi negocio en SanRafael DigitalMarket.")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full px-6 py-3 text-sm font-semibold transition-colors"
               style={{
                 color: "white",
@@ -108,13 +111,13 @@ function Index() {
               }}
             >
               Soy comerciante
-            </button>
+            </a>
           </div>
         </div>
       </section>
 
       {/* CATEGORÍAS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section id="categorias" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Categorías"
           title="Categorías destacadas"
