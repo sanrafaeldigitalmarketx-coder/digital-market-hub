@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TerminosRouteImport } from './routes/terminos'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as PrivacidadRouteImport } from './routes/privacidad'
+import { Route as PlanesRouteImport } from './routes/planes'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as CatalogoRouteImport } from './routes/catalogo'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const ServiciosRoute = ServiciosRouteImport.update({
 const PrivacidadRoute = PrivacidadRouteImport.update({
   id: '/privacidad',
   path: '/privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanesRoute = PlanesRouteImport.update({
+  id: '/planes',
+  path: '/planes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactoRoute = ContactoRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/catalogo': typeof CatalogoRoute
   '/contacto': typeof ContactoRoute
+  '/planes': typeof PlanesRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/catalogo': typeof CatalogoRoute
   '/contacto': typeof ContactoRoute
+  '/planes': typeof PlanesRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/catalogo': typeof CatalogoRoute
   '/contacto': typeof ContactoRoute
+  '/planes': typeof PlanesRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/catalogo'
     | '/contacto'
+    | '/planes'
     | '/privacidad'
     | '/servicios'
     | '/terminos'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/catalogo'
     | '/contacto'
+    | '/planes'
     | '/privacidad'
     | '/servicios'
     | '/terminos'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/catalogo'
     | '/contacto'
+    | '/planes'
     | '/privacidad'
     | '/servicios'
     | '/terminos'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CatalogoRoute: typeof CatalogoRoute
   ContactoRoute: typeof ContactoRoute
+  PlanesRoute: typeof PlanesRoute
   PrivacidadRoute: typeof PrivacidadRoute
   ServiciosRoute: typeof ServiciosRoute
   TerminosRoute: typeof TerminosRoute
@@ -129,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/privacidad'
       fullPath: '/privacidad'
       preLoaderRoute: typeof PrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planes': {
+      id: '/planes'
+      path: '/planes'
+      fullPath: '/planes'
+      preLoaderRoute: typeof PlanesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -159,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CatalogoRoute: CatalogoRoute,
   ContactoRoute: ContactoRoute,
+  PlanesRoute: PlanesRoute,
   PrivacidadRoute: PrivacidadRoute,
   ServiciosRoute: ServiciosRoute,
   TerminosRoute: TerminosRoute,
@@ -166,3 +187,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
