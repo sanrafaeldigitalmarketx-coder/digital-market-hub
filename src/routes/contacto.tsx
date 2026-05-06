@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/contacto")({
   component: ContactoPage,
@@ -43,14 +42,14 @@ function ContactoPage() {
             ¿Cómo publicar?
           </span>
           <p className="mt-4 text-base leading-relaxed text-foreground">
-            Para publicar su comercio en <strong>SanRafael DigitalMarket</strong>, debe
-            contactarme directamente. Yo me encargo de recibir el material, editarlo,
-            diseñarlo y subirlo una vez realizado el pago por <strong>Pago Móvil</strong>{" "}
-            u otros métodos disponibles.
+            Para publicar su comercio en <strong>SanRafael DigitalMarket</strong>, primero
+            debe elegir un plan y cancelar la tarifa correspondiente. Después del pago, yo
+            me encargo de recibir su material, editarlo, diseñarlo y subirlo a la
+            plataforma.
           </p>
 
           <a
-            href={getWhatsAppUrl("Hola, quiero publicar mi comercio en SanRafael DigitalMarket.")}
+            href="https://wa.me/584161334998"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-glow mt-6 inline-flex"
@@ -59,12 +58,19 @@ function ContactoPage() {
           </a>
         </div>
 
-        {/* Datos de contacto del gestor (editables solo desde el editor) */}
+        {/* Datos de contacto del gestor */}
         <div className="card-surface mt-8 space-y-3 p-8">
           <div className="field-slot">WhatsApp: +58 416 133 4898</div>
-          <div className="field-slot">Correo electrónico</div>
-          <div className="field-slot">Ubicación</div>
-          <div className="field-slot min-h-[6rem]">Información adicional</div>
+          <div className="field-slot">
+            Correo electrónico: jovanygonzalez.gfxdesigner@gmail.com
+          </div>
+          <div className="field-slot">
+            Ubicación: San Rafael de Onoto, Estado Portuguesa, Venezuela
+          </div>
+          <div className="field-slot min-h-[6rem]">
+            Atención personalizada para comerciantes, emprendedores y empresas que desean
+            aparecer en SanRafael DigitalMarket.
+          </div>
         </div>
       </section>
       <SiteFooter />

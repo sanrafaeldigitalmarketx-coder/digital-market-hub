@@ -205,7 +205,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         >
           {plan.price}
         </span>
-        <span className="text-xs text-muted-foreground">/ único</span>
+        <span className="text-xs text-muted-foreground">/ mensual</span>
       </div>
 
       <p className="mt-3 text-sm text-muted-foreground">{plan.pitch}</p>
@@ -353,9 +353,7 @@ function PlanesPage() {
           </p>
 
           <a
-            href={getWhatsAppUrl(
-              "Hola, quiero más información sobre los planes de SanRafael DigitalMarket.",
-            )}
+            href="https://wa.me/584161334998"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-glow mt-6 inline-flex text-base"
