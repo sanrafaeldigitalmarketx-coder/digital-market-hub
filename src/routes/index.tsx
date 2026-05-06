@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CategoryCard } from "@/components/CategoryCard";
+import { ProductCard } from "@/components/ProductCard";
 import { MerchantCard } from "@/components/MerchantCard";
 import { Link } from "@tanstack/react-router";
 
