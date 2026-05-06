@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "SanRafael DigitalMarket" },
+      { name: "description", content: "SanRafael DigitalMarket es una plataforma diseñada para conectar comerciantes, emprendedores y empresas de San Rafael de Onoto con clientes que buscan productos" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "SanRafael DigitalMarket" },
+      { property: "og:description", content: "SanRafael DigitalMarket es una plataforma diseñada para conectar comerciantes, emprendedores y empresas de San Rafael de Onoto con clientes que buscan productos" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "SanRafael DigitalMarket" },
+      { name: "twitter:description", content: "SanRafael DigitalMarket es una plataforma diseñada para conectar comerciantes, emprendedores y empresas de San Rafael de Onoto con clientes que buscan productos" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b54b1b94-fb91-4f53-9d26-a5c53734281f/id-preview-e3646e49--4318e32f-0ccb-4c2d-b70c-ce8f9c6ec674.lovable.app-1778099309603.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b54b1b94-fb91-4f53-9d26-a5c53734281f/id-preview-e3646e49--4318e32f-0ccb-4c2d-b70c-ce8f9c6ec674.lovable.app-1778099309603.png" },
     ],
     links: [
       {
