@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ProductCard } from "@/components/ProductCard";
 import { MerchantCard } from "@/components/MerchantCard";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -99,10 +99,8 @@ function Index() {
             <a href="#categorias" className="btn-glow">
               Explorar marketplace
             </a>
-            <a
-              href={getWhatsAppUrl("Hola, soy comerciante y quiero publicar mi negocio en SanRafael DigitalMarket.")}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/planes"
               className="rounded-full px-6 py-3 text-sm font-semibold transition-colors"
               style={{
                 color: "white",
@@ -111,7 +109,7 @@ function Index() {
               }}
             >
               Soy comerciante
-            </a>
+            </Link>
           </div>
         </div>
       </section>
