@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Inicio", to: "/" as const },
@@ -23,10 +24,18 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2 group">
           <span
-            className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold text-white"
-            style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-glow-purple)" }}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden"
+            style={{
+              background: "oklch(1 0 0 / 0.04)",
+              boxShadow: "var(--shadow-glow-purple)",
+              border: "1px solid oklch(0.62 0.22 285 / 0.35)",
+            }}
           >
-            S
+            <img
+              src={logo}
+              alt="SanRafael DigitalMarket"
+              className="h-9 w-9 object-contain transition-transform group-hover:scale-105"
+            />
           </span>
           <span className="text-base font-bold tracking-tight sm:text-lg">
             SanRafael <span style={{ color: "var(--brand-blue)" }}>DigitalMarket</span>
