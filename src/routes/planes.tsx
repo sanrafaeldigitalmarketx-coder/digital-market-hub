@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
+
 
 export const Route = createFileRoute("/planes")({
   component: PlanesPage,
