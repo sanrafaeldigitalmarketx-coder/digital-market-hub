@@ -72,6 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "7LScGEmz1s0TeAYZHr_soCL79VIklOxJN3g_ZOIo1EA" },
       { title: "SanRafael DigitalMarket" },
       { name: "description", content: "SanRafael DigitalMarket es una plataforma diseñada para conectar comerciantes, emprendedores y empresas de San Rafael de Onoto con clientes que buscan productos" },
       { name: "author", content: "Lovable" },
