@@ -1,4 +1,4 @@
-import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { INSTITUTIONAL_PENDING } from "@/lib/whatsapp";
 
 export function ProductCard() {
   return (
@@ -20,18 +20,18 @@ export function ProductCard() {
         <div className="field-slot">Número de contacto</div>
         <div className="field-slot">Formato de negociación</div>
 
-        <a
-          href={getWhatsAppUrl("Hola, me interesa un producto del catálogo de SanRafael DigitalMarket.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-2 w-full rounded-full py-2.5 text-sm font-semibold text-white text-center transition-all hover:-translate-y-0.5"
+        <button
+          type="button"
+          disabled
+          aria-disabled="true"
+          title={INSTITUTIONAL_PENDING}
+          className="mt-2 w-full cursor-not-allowed rounded-full py-2.5 text-sm font-semibold text-white/80 text-center opacity-60"
           style={{
             background: "var(--gradient-brand)",
-            boxShadow: "0 0 18px -6px var(--brand-blue)",
           }}
         >
-          Ver comercio · Contactar
-        </a>
+          Contacto pendiente
+        </button>
       </div>
     </article>
   );
