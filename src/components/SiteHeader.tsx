@@ -3,6 +3,12 @@ import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Inicio", to: "/" as const },
+  { label: "Noticias", to: "/noticias" as const },
+  { label: "Cultura y Turismo", to: "/cultura" as const },
+  { label: "Institucional", to: "/institucional" as const },
+  { label: "Transparencia", to: "/transparencia" as const },
+  { label: "Mapa", to: "/mapa" as const },
+  { label: "Categorías", to: "/categorias" as const },
   { label: "Catálogo", to: "/catalogo" as const },
   { label: "Servicios", to: "/servicios" as const },
   { label: "Planes", to: "/planes" as const },
@@ -22,7 +28,7 @@ export function SiteHeader() {
       }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex shrink-0 items-center gap-2 group">
           <span
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden"
             style={{
@@ -37,7 +43,7 @@ export function SiteHeader() {
               className="h-9 w-9 object-contain transition-transform group-hover:scale-105"
             />
           </span>
-          <span className="text-base font-bold tracking-tight sm:text-lg">
+          <span className="hidden text-base font-bold tracking-tight sm:inline sm:text-lg">
             SanRafael <span style={{ color: "var(--brand-blue)" }}>DigitalMarket</span>
           </span>
         </Link>
