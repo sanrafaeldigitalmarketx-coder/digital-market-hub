@@ -9,14 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TransparenciaRouteImport } from './routes/transparencia'
 import { Route as TerminosRouteImport } from './routes/terminos'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as PlanesRouteImport } from './routes/planes'
+import { Route as NoticiasRouteImport } from './routes/noticias'
+import { Route as MapaRouteImport } from './routes/mapa'
+import { Route as InstitucionalRouteImport } from './routes/institucional'
+import { Route as CulturaRouteImport } from './routes/cultura'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as CatalogoRouteImport } from './routes/catalogo'
+import { Route as AgregarComercioRouteImport } from './routes/agregar-comercio'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NoticiasSlugRouteImport } from './routes/noticias.$slug'
+import { Route as CategoriasSlugRouteImport } from './routes/categorias.$slug'
 
+const TransparenciaRoute = TransparenciaRouteImport.update({
+  id: '/transparencia',
+  path: '/transparencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TerminosRoute = TerminosRouteImport.update({
   id: '/terminos',
   path: '/terminos',
@@ -37,9 +51,34 @@ const PlanesRoute = PlanesRouteImport.update({
   path: '/planes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NoticiasRoute = NoticiasRouteImport.update({
+  id: '/noticias',
+  path: '/noticias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstitucionalRoute = InstitucionalRouteImport.update({
+  id: '/institucional',
+  path: '/institucional',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CulturaRoute = CulturaRouteImport.update({
+  id: '/cultura',
+  path: '/cultura',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategoriasRoute = CategoriasRouteImport.update({
+  id: '/categorias',
+  path: '/categorias',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CatalogoRoute = CatalogoRouteImport.update({
@@ -47,82 +86,165 @@ const CatalogoRoute = CatalogoRouteImport.update({
   path: '/catalogo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgregarComercioRoute = AgregarComercioRouteImport.update({
+  id: '/agregar-comercio',
+  path: '/agregar-comercio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NoticiasSlugRoute = NoticiasSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => NoticiasRoute,
+} as any)
+const CategoriasSlugRoute = CategoriasSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CategoriasRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
+  '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/cultura': typeof CulturaRoute
+  '/institucional': typeof InstitucionalRoute
+  '/mapa': typeof MapaRoute
+  '/noticias': typeof NoticiasRouteWithChildren
   '/planes': typeof PlanesRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/categorias/$slug': typeof CategoriasSlugRoute
+  '/noticias/$slug': typeof NoticiasSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
+  '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/cultura': typeof CulturaRoute
+  '/institucional': typeof InstitucionalRoute
+  '/mapa': typeof MapaRoute
+  '/noticias': typeof NoticiasRouteWithChildren
   '/planes': typeof PlanesRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/categorias/$slug': typeof CategoriasSlugRoute
+  '/noticias/$slug': typeof NoticiasSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
+  '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
+  '/cultura': typeof CulturaRoute
+  '/institucional': typeof InstitucionalRoute
+  '/mapa': typeof MapaRoute
+  '/noticias': typeof NoticiasRouteWithChildren
   '/planes': typeof PlanesRoute
   '/privacidad': typeof PrivacidadRoute
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/categorias/$slug': typeof CategoriasSlugRoute
+  '/noticias/$slug': typeof NoticiasSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/agregar-comercio'
     | '/catalogo'
+    | '/categorias'
     | '/contacto'
+    | '/cultura'
+    | '/institucional'
+    | '/mapa'
+    | '/noticias'
     | '/planes'
     | '/privacidad'
     | '/servicios'
     | '/terminos'
+    | '/transparencia'
+    | '/categorias/$slug'
+    | '/noticias/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/agregar-comercio'
     | '/catalogo'
+    | '/categorias'
     | '/contacto'
+    | '/cultura'
+    | '/institucional'
+    | '/mapa'
+    | '/noticias'
     | '/planes'
     | '/privacidad'
     | '/servicios'
     | '/terminos'
+    | '/transparencia'
+    | '/categorias/$slug'
+    | '/noticias/$slug'
   id:
     | '__root__'
     | '/'
+    | '/agregar-comercio'
     | '/catalogo'
+    | '/categorias'
     | '/contacto'
+    | '/cultura'
+    | '/institucional'
+    | '/mapa'
+    | '/noticias'
     | '/planes'
     | '/privacidad'
     | '/servicios'
     | '/terminos'
+    | '/transparencia'
+    | '/categorias/$slug'
+    | '/noticias/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgregarComercioRoute: typeof AgregarComercioRoute
   CatalogoRoute: typeof CatalogoRoute
+  CategoriasRoute: typeof CategoriasRouteWithChildren
   ContactoRoute: typeof ContactoRoute
+  CulturaRoute: typeof CulturaRoute
+  InstitucionalRoute: typeof InstitucionalRoute
+  MapaRoute: typeof MapaRoute
+  NoticiasRoute: typeof NoticiasRouteWithChildren
   PlanesRoute: typeof PlanesRoute
   PrivacidadRoute: typeof PrivacidadRoute
   ServiciosRoute: typeof ServiciosRoute
   TerminosRoute: typeof TerminosRoute
+  TransparenciaRoute: typeof TransparenciaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/transparencia': {
+      id: '/transparencia'
+      path: '/transparencia'
+      fullPath: '/transparencia'
+      preLoaderRoute: typeof TransparenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terminos': {
       id: '/terminos'
       path: '/terminos'
@@ -151,11 +273,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlanesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/noticias': {
+      id: '/noticias'
+      path: '/noticias'
+      fullPath: '/noticias'
+      preLoaderRoute: typeof NoticiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/institucional': {
+      id: '/institucional'
+      path: '/institucional'
+      fullPath: '/institucional'
+      preLoaderRoute: typeof InstitucionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cultura': {
+      id: '/cultura'
+      path: '/cultura'
+      fullPath: '/cultura'
+      preLoaderRoute: typeof CulturaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contacto': {
       id: '/contacto'
       path: '/contacto'
       fullPath: '/contacto'
       preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/categorias': {
+      id: '/categorias'
+      path: '/categorias'
+      fullPath: '/categorias'
+      preLoaderRoute: typeof CategoriasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/catalogo': {
@@ -165,6 +322,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatalogoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agregar-comercio': {
+      id: '/agregar-comercio'
+      path: '/agregar-comercio'
+      fullPath: '/agregar-comercio'
+      preLoaderRoute: typeof AgregarComercioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -172,28 +336,63 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/noticias/$slug': {
+      id: '/noticias/$slug'
+      path: '/$slug'
+      fullPath: '/noticias/$slug'
+      preLoaderRoute: typeof NoticiasSlugRouteImport
+      parentRoute: typeof NoticiasRoute
+    }
+    '/categorias/$slug': {
+      id: '/categorias/$slug'
+      path: '/$slug'
+      fullPath: '/categorias/$slug'
+      preLoaderRoute: typeof CategoriasSlugRouteImport
+      parentRoute: typeof CategoriasRoute
+    }
   }
 }
 
+interface CategoriasRouteChildren {
+  CategoriasSlugRoute: typeof CategoriasSlugRoute
+}
+
+const CategoriasRouteChildren: CategoriasRouteChildren = {
+  CategoriasSlugRoute: CategoriasSlugRoute,
+}
+
+const CategoriasRouteWithChildren = CategoriasRoute._addFileChildren(
+  CategoriasRouteChildren,
+)
+
+interface NoticiasRouteChildren {
+  NoticiasSlugRoute: typeof NoticiasSlugRoute
+}
+
+const NoticiasRouteChildren: NoticiasRouteChildren = {
+  NoticiasSlugRoute: NoticiasSlugRoute,
+}
+
+const NoticiasRouteWithChildren = NoticiasRoute._addFileChildren(
+  NoticiasRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgregarComercioRoute: AgregarComercioRoute,
   CatalogoRoute: CatalogoRoute,
+  CategoriasRoute: CategoriasRouteWithChildren,
   ContactoRoute: ContactoRoute,
+  CulturaRoute: CulturaRoute,
+  InstitucionalRoute: InstitucionalRoute,
+  MapaRoute: MapaRoute,
+  NoticiasRoute: NoticiasRouteWithChildren,
   PlanesRoute: PlanesRoute,
   PrivacidadRoute: PrivacidadRoute,
   ServiciosRoute: ServiciosRoute,
   TerminosRoute: TerminosRoute,
+  TransparenciaRoute: TransparenciaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

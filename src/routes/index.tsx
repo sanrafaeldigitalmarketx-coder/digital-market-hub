@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ProductCard } from "@/components/ProductCard";
 import { MerchantCard } from "@/components/MerchantCard";
+import { Banner } from "@/components/Banner";
 import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -48,6 +49,13 @@ function Index() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
+
+      {/* BANNER SUPERIOR */}
+      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+        <Banner variant="top" label="Banner superior rotativo · Pendiente de cargar" />
+      </div>
+
+
 
       {/* HERO */}
       <section className="relative overflow-hidden">
@@ -143,6 +151,12 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* BANNER ENTRE SECCIONES */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Banner label="Banner entre secciones · Pendiente de cargar" />
+      </div>
+
 
       {/* PRODUCTOS */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

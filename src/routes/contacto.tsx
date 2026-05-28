@@ -7,7 +7,11 @@ export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
       { title: "Contacto — SanRafael DigitalMarket" },
-      { name: "description", content: "Contacta con SanRafael DigitalMarket para publicar tu comercio." },
+      {
+        name: "description",
+        content:
+          "Información de contacto institucional pendiente de cargar por la Alcaldía del Municipio San Rafael de Onoto.",
+      },
     ],
   }),
 });
@@ -17,12 +21,12 @@ function ContactoPage() {
     <div className="min-h-screen">
       <SiteHeader />
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold sm:text-5xl">Contacto</h1>
+        <h1 className="text-4xl font-bold sm:text-5xl">Contacto institucional</h1>
         <p className="mt-3 text-muted-foreground">
-          Toda publicación se gestiona directamente conmigo.
+          Información pendiente de cargar por la Alcaldía del Municipio San Rafael de
+          Onoto.
         </p>
 
-        {/* Aviso informativo del modelo de gestión */}
         <div
           className="card-surface mt-10 p-8"
           style={{
@@ -39,37 +43,31 @@ function ContactoPage() {
               border: "1px solid oklch(0.70 0.18 240 / 0.3)",
             }}
           >
-            ¿Cómo publicar?
+            Aviso
           </span>
           <p className="mt-4 text-base leading-relaxed text-foreground">
-            Para publicar su comercio en <strong>SanRafael DigitalMarket</strong>, primero
-            debe elegir un plan y cancelar la tarifa correspondiente. Después del pago, yo
-            me encargo de recibir su material, editarlo, diseñarlo y subirlo a la
-            plataforma.
+            Los canales oficiales de atención serán publicados por la Alcaldía del
+            Municipio San Rafael de Onoto.
           </p>
 
-          <a
-            href="https://wa.me/584161334998"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-glow mt-6 inline-flex"
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="btn-glow mt-6 inline-flex cursor-not-allowed opacity-60"
+            title="Información pendiente de cargar por la Alcaldía del Municipio San Rafael de Onoto."
           >
-            Escribirme por WhatsApp
-          </a>
+            Canal de contacto pendiente
+          </button>
         </div>
 
-        {/* Datos de contacto del gestor */}
         <div className="card-surface mt-8 space-y-3 p-8">
-          <div className="field-slot">WhatsApp: +58 416 133 4898</div>
-          <div className="field-slot">
-            Correo electrónico: jovanygonzalez.gfxdesigner@gmail.com
-          </div>
-          <div className="field-slot">
-            Ubicación: San Rafael de Onoto, Estado Portuguesa, Venezuela
-          </div>
+          <div className="field-slot">WhatsApp oficial pendiente</div>
+          <div className="field-slot">Correo institucional pendiente</div>
+          <div className="field-slot">Dirección oficial pendiente</div>
           <div className="field-slot min-h-[6rem]">
-            Atención personalizada para comerciantes, emprendedores y empresas que desean
-            aparecer en SanRafael DigitalMarket.
+            Información pendiente de cargar por la Alcaldía del Municipio San Rafael de
+            Onoto.
           </div>
         </div>
       </section>

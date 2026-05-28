@@ -1,4 +1,4 @@
-import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { INSTITUTIONAL_PENDING } from "@/lib/whatsapp";
 
 export function MerchantCard() {
   return (
@@ -18,21 +18,23 @@ export function MerchantCard() {
         <div className="mt-12 flex flex-col gap-2.5">
           <div className="field-slot">Nombre del comercio</div>
           <div className="field-slot">Ubicación</div>
-          <div className="field-slot">Número de teléfono</div>
+          <div className="field-slot" title={INSTITUTIONAL_PENDING}>
+            Número de contacto pendiente
+          </div>
           <div className="field-slot min-h-[4.5rem]">Descripción corta (opcional)</div>
 
-          <a
-            href={getWhatsAppUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 w-full rounded-full py-2.5 text-sm font-semibold text-white text-center transition-all hover:-translate-y-0.5"
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            title={INSTITUTIONAL_PENDING}
+            className="mt-2 w-full cursor-not-allowed rounded-full py-2.5 text-sm font-semibold text-white/80 text-center opacity-60"
             style={{
-              background: "linear-gradient(135deg, oklch(0.65 0.18 155), oklch(0.70 0.18 165))",
-              boxShadow: "0 0 18px -6px oklch(0.70 0.18 155)",
+              background: "linear-gradient(135deg, oklch(0.65 0.18 155 / 0.55), oklch(0.70 0.18 165 / 0.55))",
             }}
           >
-            Contactar por WhatsApp
-          </a>
+            Contacto pendiente
+          </button>
         </div>
       </div>
     </article>
