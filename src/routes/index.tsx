@@ -152,6 +152,12 @@ function Index() {
         </div>
       </section>
 
+      {/* BANNER ENTRE SECCIONES */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Banner label="Banner entre secciones · Pendiente de cargar" />
+      </div>
+
+
       {/* PRODUCTOS */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle
