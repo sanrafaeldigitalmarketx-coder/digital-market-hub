@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ProductCard } from "@/components/ProductCard";
 import { MerchantCard } from "@/components/MerchantCard";
+import { Banner } from "@/components/Banner";
 import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
