@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
-
 export const Route = createFileRoute("/planes")({
   component: PlanesPage,
   head: () => ({
@@ -11,13 +10,12 @@ export const Route = createFileRoute("/planes")({
       {
         name: "description",
         content:
-          "Conoce los planes y tarifas para emprendedores, comercios y empresas en SanRafael DigitalMarket.",
+          "Planes y tarifas pendientes de cargar por la Alcaldía del Municipio San Rafael de Onoto.",
       },
       { property: "og:title", content: "Planes y Tarifas — SanRafael DigitalMarket" },
       {
         property: "og:description",
-        content:
-          "Planes flexibles para emprendedores, negocios locales y empresas grandes.",
+        content: "Planes pendientes de definir por la Alcaldía del Municipio.",
       },
     ],
   }),
@@ -25,126 +23,29 @@ export const Route = createFileRoute("/planes")({
 
 type Plan = {
   name: string;
-  price: string;
   pitch: string;
   features: string[];
   highlight?: boolean;
 };
 
 const emprendedores: Plan[] = [
-  {
-    name: "Plan Básico",
-    price: "$15",
-    pitch:
-      "Perfecto para emprendedores que solo quieren aparecer en la página sin diseño adicional.",
-    features: [
-      "Publicación sin diseño",
-      "Contenido enviado por el cliente",
-      "Ubicación estándar",
-      "Ideal para comenzar rápido",
-    ],
-  },
-  {
-    name: "Plan Estándar",
-    price: "$20",
-    pitch: "La opción ideal para mejorar tu presencia con un diseño básico y atractivo.",
-    features: ["Diseño básico", "Portada o flyer", "Edición ligera", "Ubicación media"],
-  },
-  {
-    name: "Plan Premium",
-    price: "$25",
-    pitch:
-      "Destaca entre los demás con un diseño completo y una presentación más profesional.",
-    features: [
-      "Diseño completo",
-      "Mini catálogo (3 imágenes)",
-      "Ubicación destacada",
-      "Más visualizaciones",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Plan Élite",
-    price: "$40",
-    pitch: "Máxima presencia para emprendedores que quieren verse como marcas.",
-    features: [
-      "Diseño completo",
-      "Publicidad interna",
-      "Ubicación superior",
-      "Actualizaciones semanales",
-    ],
-  },
+  { name: "Plan Básico", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
+  { name: "Plan Estándar", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
+  { name: "Plan Premium", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"], highlight: true },
+  { name: "Plan Élite", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
 ];
 
 const comercios: Plan[] = [
-  {
-    name: "Plan Básico",
-    price: "$20",
-    pitch: "Presencia garantizada para tu negocio sin necesidad de diseño.",
-    features: ["Publicación sin diseño", "Ubicación estándar"],
-  },
-  {
-    name: "Plan Estándar",
-    price: "$25",
-    pitch: "Mejora la imagen de tu negocio con un diseño básico y profesional.",
-    features: ["Diseño básico", "Edición ligera", "Ubicación media"],
-  },
-  {
-    name: "Plan Premium",
-    price: "$30",
-    pitch: "Haz que tu negocio destaque con un diseño completo y un mini catálogo.",
-    features: [
-      "Diseño completo",
-      "Mini catálogo",
-      "Ubicación destacada",
-      "Más visualizaciones",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Plan Élite",
-    price: "$50",
-    pitch: "Visibilidad superior para negocios que quieren dominar la plataforma.",
-    features: [
-      "Diseño completo",
-      "Banner interno",
-      "Ubicación fija arriba",
-      "Publicidad interna",
-    ],
-  },
+  { name: "Plan Básico", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente"] },
+  { name: "Plan Estándar", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
+  { name: "Plan Premium", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"], highlight: true },
+  { name: "Plan Élite", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
 ];
 
 const empresas: Plan[] = [
-  {
-    name: "Plan Estándar",
-    price: "$30",
-    pitch: "Presencia profesional para empresas que quieren estar en la plataforma.",
-    features: ["Publicación + diseño básico", "Ubicación media"],
-  },
-  {
-    name: "Plan Premium",
-    price: "$50",
-    pitch: "Diseño completo y publicidad interna para empresas que buscan impacto.",
-    features: [
-      "Diseño completo",
-      "Mini catálogo",
-      "Publicidad interna",
-      "Ubicación destacada",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Plan Élite",
-    price: "$70",
-    pitch: "La máxima visibilidad para empresas que quieren liderar la plataforma.",
-    features: [
-      "Banner principal",
-      "Publicidad interna",
-      "Actualizaciones semanales",
-      "Atención prioritaria",
-      "Ubicación superior fija",
-    ],
-  },
+  { name: "Plan Estándar", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente"] },
+  { name: "Plan Premium", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"], highlight: true },
+  { name: "Plan Élite", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
 ];
 
 function CheckIcon() {
@@ -188,33 +89,26 @@ function PlanCard({ plan }: { plan: Plan }) {
           className="absolute -top-3 right-5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
           style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-glow-purple)" }}
         >
-          Más popular
+          Destacado
         </span>
       )}
 
       <h3 className="text-lg font-semibold">{plan.name}</h3>
       <div className="mt-2 flex items-baseline gap-1">
         <span
-          className="text-4xl font-extrabold tracking-tight"
-          style={{
-            backgroundImage: "var(--gradient-brand)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
+          className="text-2xl font-bold tracking-tight text-muted-foreground"
         >
-          {plan.price}
+          Tarifa pendiente
         </span>
-        <span className="text-xs text-muted-foreground">/ mensual</span>
       </div>
 
       <p className="mt-3 text-sm text-muted-foreground">{plan.pitch}</p>
 
       <ul className="mt-5 space-y-2.5 text-sm">
-        {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5">
+        {plan.features.map((f, i) => (
+          <li key={i} className="flex items-start gap-2.5">
             <CheckIcon />
-            <span>{f}</span>
+            <span className="text-muted-foreground">{f}</span>
           </li>
         ))}
       </ul>
@@ -270,7 +164,6 @@ function PlanesPage() {
     <div className="min-h-screen">
       <SiteHeader />
 
-      {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
         <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
@@ -288,7 +181,7 @@ function PlanesPage() {
             className="mt-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl"
             style={{ animation: "var(--animate-fade-up)" }}
           >
-            Elige el plan{" "}
+            Planes{" "}
             <span
               style={{
                 backgroundImage: "var(--gradient-brand)",
@@ -297,12 +190,12 @@ function PlanesPage() {
                 color: "transparent",
               }}
             >
-              ideal para ti
+              institucionales
             </span>
           </h1>
           <p className="mt-5 text-base text-muted-foreground sm:text-lg">
-            Tarifas claras y planes pensados para emprendedores, comercios locales y
-            empresas grandes.
+            Información pendiente de cargar por la Alcaldía del Municipio San Rafael de
+            Onoto.
           </p>
         </div>
       </section>
@@ -310,7 +203,7 @@ function PlanesPage() {
       <Block
         eyebrow="Bloque 1"
         title="Emprendedores Independientes"
-        description="Planes accesibles para quienes están comenzando o trabajan por cuenta propia."
+        description="Información pendiente de cargar por la Alcaldía del Municipio."
         plans={emprendedores}
         cols="4"
       />
@@ -318,7 +211,7 @@ function PlanesPage() {
       <Block
         eyebrow="Bloque 2"
         title="Comerciantes / Negocios Locales"
-        description="Para tiendas, locales y comercios establecidos que quieren crecer."
+        description="Información pendiente de cargar por la Alcaldía del Municipio."
         plans={comercios}
         cols="4"
       />
@@ -326,12 +219,11 @@ function PlanesPage() {
       <Block
         eyebrow="Bloque 3"
         title="Empresas Grandes"
-        description="Visibilidad superior para empresas que quieren liderar la plataforma."
+        description="Información pendiente de cargar por la Alcaldía del Municipio."
         plans={empresas}
         cols="3"
       />
 
-      {/* INFO + CTA */}
       <section className="mx-auto max-w-3xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
         <div
           className="card-surface p-8 text-center sm:p-10"
@@ -342,24 +234,19 @@ function PlanesPage() {
           }}
         >
           <p className="text-base leading-relaxed text-foreground">
-            Para publicar su comercio en <strong>SanRafael DigitalMarket</strong>, primero
-            debe elegir un plan y cancelar la tarifa correspondiente. Después del pago, yo
-            me encargo de recibir su material, diseñarlo (según el plan) y publicarlo en
-            la plataforma.
+            Información pendiente de cargar por la Alcaldía del Municipio San Rafael de
+            Onoto.
           </p>
 
-          <p className="mt-6 text-sm text-muted-foreground">
-            Lee toda la información y contáctame para saber más.
-          </p>
-
-          <a
-            href="https://wa.me/584161334998"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-glow mt-6 inline-flex text-base"
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="btn-glow mt-6 inline-flex cursor-not-allowed text-base opacity-60"
+            title="Información pendiente de cargar por la Alcaldía del Municipio San Rafael de Onoto."
           >
-            Contactarme para saber más
-          </a>
+            Contacto institucional pendiente
+          </button>
         </div>
       </section>
 

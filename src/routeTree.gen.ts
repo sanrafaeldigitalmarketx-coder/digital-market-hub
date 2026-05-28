@@ -21,6 +21,7 @@ import { Route as CulturaRouteImport } from './routes/cultura'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as CatalogoRouteImport } from './routes/catalogo'
+import { Route as AgregarComercioRouteImport } from './routes/agregar-comercio'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NoticiasSlugRouteImport } from './routes/noticias.$slug'
 import { Route as CategoriasSlugRouteImport } from './routes/categorias.$slug'
@@ -85,6 +86,11 @@ const CatalogoRoute = CatalogoRouteImport.update({
   path: '/catalogo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgregarComercioRoute = AgregarComercioRouteImport.update({
+  id: '/agregar-comercio',
+  path: '/agregar-comercio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -103,6 +109,7 @@ const CategoriasSlugRoute = CategoriasSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
   '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
@@ -120,6 +127,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
   '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
@@ -138,6 +146,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
   '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
@@ -157,6 +166,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/agregar-comercio'
     | '/catalogo'
     | '/categorias'
     | '/contacto'
@@ -174,6 +184,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/agregar-comercio'
     | '/catalogo'
     | '/categorias'
     | '/contacto'
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/agregar-comercio'
     | '/catalogo'
     | '/categorias'
     | '/contacto'
@@ -209,6 +221,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgregarComercioRoute: typeof AgregarComercioRoute
   CatalogoRoute: typeof CatalogoRoute
   CategoriasRoute: typeof CategoriasRouteWithChildren
   ContactoRoute: typeof ContactoRoute
@@ -309,6 +322,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatalogoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agregar-comercio': {
+      id: '/agregar-comercio'
+      path: '/agregar-comercio'
+      fullPath: '/agregar-comercio'
+      preLoaderRoute: typeof AgregarComercioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -359,6 +379,7 @@ const NoticiasRouteWithChildren = NoticiasRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgregarComercioRoute: AgregarComercioRoute,
   CatalogoRoute: CatalogoRoute,
   CategoriasRoute: CategoriasRouteWithChildren,
   ContactoRoute: ContactoRoute,
