@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { MerchantCard } from "@/components/MerchantCard";
 import { Banner } from "@/components/Banner";
 import { Link } from "@tanstack/react-router";
+import { CATEGORIES } from "@/lib/categories";
 
 export const Route = createFileRoute("/")({
   component: Index,
