@@ -1,10 +1,13 @@
+import alimentosIcon from "@/assets/categories/alimentos.png.asset.json";
+
 export type Category = {
   slug: string;
   name: string;
+  icon?: string;
 };
 
 export const CATEGORIES: Category[] = [
-  { slug: "alimentos", name: "Alimentos y Víveres" },
+  { slug: "alimentos", name: "Alimentos y Víveres", icon: alimentosIcon.url },
   { slug: "ferreteria", name: "Ferretería y Construcción" },
   { slug: "repuestos", name: "Repuestos y Accesorios" },
   { slug: "farmacias", name: "Farmacias" },

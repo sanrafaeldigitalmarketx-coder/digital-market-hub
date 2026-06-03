@@ -132,7 +132,7 @@ function Index() {
         />
         <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
           {CATEGORIES.map((c) => (
-            <CategoryCard key={c.slug} name={c.name} slug={c.slug} />
+            <CategoryCard key={c.slug} name={c.name} slug={c.slug} icon={c.icon} />
           ))}
         </div>
       </section>

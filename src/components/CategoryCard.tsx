@@ -1,14 +1,30 @@
 import { Link } from "@tanstack/react-router";
 
-export function CategoryCard({ name, slug }: { name?: string; slug?: string }) {
+export function CategoryCard({
+  name,
+  slug,
+  icon,
+}: {
+  name?: string;
+  slug?: string;
+  icon?: string;
+}) {
   const content = (
     <>
-      <div
-        className="empty-slot h-16 w-16 rounded-2xl"
-        aria-label="Icono de categoría"
-      >
-        Icono
-      </div>
+      {icon ? (
+        <img
+          src={icon}
+          alt={name ? `Icono de ${name}` : "Icono de categoría"}
+          className="h-16 w-16 rounded-2xl object-contain"
+        />
+      ) : (
+        <div
+          className="empty-slot h-16 w-16 rounded-2xl"
+          aria-label="Icono de categoría"
+        >
+          Icono
+        </div>
+      )}
       <div className="field-slot w-full text-center">
         {name ?? "Nombre de la categoría"}
       </div>
