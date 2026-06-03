@@ -1,5 +1,6 @@
 import alimentosIcon from "@/assets/categories/alimentos.png.asset.json";
 import ferreteriaIcon from "@/assets/categories/ferreteria.png.asset.json";
+import repuestosIcon from "@/assets/categories/repuestos.png.asset.json";
 
 export type Category = {
   slug: string;
@@ -10,7 +11,7 @@ export type Category = {
 export const CATEGORIES: Category[] = [
   { slug: "alimentos", name: "Alimentos y Víveres", icon: alimentosIcon.url },
   { slug: "ferreteria", name: "Ferretería y Construcción", icon: ferreteriaIcon.url },
-  { slug: "repuestos", name: "Repuestos y Accesorios" },
+  { slug: "repuestos", name: "Repuestos y Accesorios", icon: repuestosIcon.url },
   { slug: "farmacias", name: "Farmacias" },
   { slug: "centros-medicos", name: "Centros Médicos" },
   { slug: "laboratorios", name: "Laboratorios Clínicos" },
