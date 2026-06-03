@@ -19,7 +19,6 @@ import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as InstitucionalRouteImport } from './routes/institucional'
 import { Route as CulturaRouteImport } from './routes/cultura'
 import { Route as ContactoRouteImport } from './routes/contacto'
-import { Route as CategoriasRouteImport } from './routes/categorias'
 import { Route as CatalogoRouteImport } from './routes/catalogo'
 import { Route as AgregarComercioRouteImport } from './routes/agregar-comercio'
 import { Route as IndexRouteImport } from './routes/index'
@@ -76,11 +75,6 @@ const ContactoRoute = ContactoRouteImport.update({
   path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CategoriasRoute = CategoriasRouteImport.update({
-  id: '/categorias',
-  path: '/categorias',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CatalogoRoute = CatalogoRouteImport.update({
   id: '/catalogo',
   path: '/catalogo',
@@ -111,7 +105,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
-  '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/cultura': typeof CulturaRoute
   '/institucional': typeof InstitucionalRoute
@@ -129,7 +122,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
-  '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/cultura': typeof CulturaRoute
   '/institucional': typeof InstitucionalRoute
@@ -148,7 +140,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/agregar-comercio': typeof AgregarComercioRoute
   '/catalogo': typeof CatalogoRoute
-  '/categorias': typeof CategoriasRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/cultura': typeof CulturaRoute
   '/institucional': typeof InstitucionalRoute
@@ -168,7 +159,6 @@ export interface FileRouteTypes {
     | '/'
     | '/agregar-comercio'
     | '/catalogo'
-    | '/categorias'
     | '/contacto'
     | '/cultura'
     | '/institucional'
@@ -186,7 +176,6 @@ export interface FileRouteTypes {
     | '/'
     | '/agregar-comercio'
     | '/catalogo'
-    | '/categorias'
     | '/contacto'
     | '/cultura'
     | '/institucional'
@@ -204,7 +193,6 @@ export interface FileRouteTypes {
     | '/'
     | '/agregar-comercio'
     | '/catalogo'
-    | '/categorias'
     | '/contacto'
     | '/cultura'
     | '/institucional'
@@ -223,7 +211,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgregarComercioRoute: typeof AgregarComercioRoute
   CatalogoRoute: typeof CatalogoRoute
-  CategoriasRoute: typeof CategoriasRouteWithChildren
   ContactoRoute: typeof ContactoRoute
   CulturaRoute: typeof CulturaRoute
   InstitucionalRoute: typeof InstitucionalRoute
@@ -308,13 +295,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/categorias': {
-      id: '/categorias'
-      path: '/categorias'
-      fullPath: '/categorias'
-      preLoaderRoute: typeof CategoriasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/catalogo': {
       id: '/catalogo'
       path: '/catalogo'
@@ -353,18 +333,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface CategoriasRouteChildren {
-  CategoriasSlugRoute: typeof CategoriasSlugRoute
-}
-
-const CategoriasRouteChildren: CategoriasRouteChildren = {
-  CategoriasSlugRoute: CategoriasSlugRoute,
-}
-
-const CategoriasRouteWithChildren = CategoriasRoute._addFileChildren(
-  CategoriasRouteChildren,
-)
-
 interface NoticiasRouteChildren {
   NoticiasSlugRoute: typeof NoticiasSlugRoute
 }
@@ -381,7 +349,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgregarComercioRoute: AgregarComercioRoute,
   CatalogoRoute: CatalogoRoute,
-  CategoriasRoute: CategoriasRouteWithChildren,
   ContactoRoute: ContactoRoute,
   CulturaRoute: CulturaRoute,
   InstitucionalRoute: InstitucionalRoute,
