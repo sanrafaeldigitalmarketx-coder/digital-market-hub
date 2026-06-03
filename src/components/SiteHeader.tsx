@@ -8,7 +8,6 @@ const navLinks = [
   { label: "Institucional", to: "/institucional" as const },
   { label: "Transparencia", to: "/transparencia" as const },
   { label: "Mapa", to: "/mapa" as const },
-  { label: "Categorías", to: "/categorias" as const },
   { label: "Catálogo", to: "/catalogo" as const },
   { label: "Servicios", to: "/servicios" as const },
   { label: "Planes", to: "/planes" as const },

@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { MerchantCard } from "@/components/MerchantCard";
 import { Banner } from "@/components/Banner";
 import { Link } from "@tanstack/react-router";
+import { CATEGORIES } from "@/lib/categories";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -129,9 +130,9 @@ function Index() {
           title="Categorías destacadas"
           description="Espacios listos para tus categorías personalizadas."
         />
-        <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <CategoryCard key={i} />
+        <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+          {CATEGORIES.map((c) => (
+            <CategoryCard key={c.slug} name={c.name} slug={c.slug} />
           ))}
         </div>
       </section>
