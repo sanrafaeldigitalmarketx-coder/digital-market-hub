@@ -7,6 +7,9 @@ import laboratoriosIcon from "@/assets/categories/laboratorios.png.asset.json";
 import hotelesIcon from "@/assets/categories/hoteles.png.asset.json";
 import comidaRapidaIcon from "@/assets/categories/comida-rapida.png.asset.json";
 import modaIcon from "@/assets/categories/moda.png.asset.json";
+import bellezaIcon from "@/assets/categories/belleza.png.asset.json";
+import serviciosProfesionalesIcon from "@/assets/categories/servicios-profesionales.png.asset.json";
+import hogarIcon from "@/assets/categories/hogar.png.asset.json";
 
 export type Category = {
   slug: string;
