@@ -5,6 +5,8 @@ import farmaciasIcon from "@/assets/categories/farmacias.png.asset.json";
 import centrosMedicosIcon from "@/assets/categories/centros-medicos.png.asset.json";
 import laboratoriosIcon from "@/assets/categories/laboratorios.png.asset.json";
 import hotelesIcon from "@/assets/categories/hoteles.png.asset.json";
+import comidaRapidaIcon from "@/assets/categories/comida-rapida.png.asset.json";
+import modaIcon from "@/assets/categories/moda.png.asset.json";
 
 export type Category = {
   slug: string;
@@ -20,8 +22,8 @@ export const CATEGORIES: Category[] = [
   { slug: "centros-medicos", name: "Centros Médicos", icon: centrosMedicosIcon.url },
   { slug: "laboratorios", name: "Laboratorios Clínicos", icon: laboratoriosIcon.url },
   { slug: "hoteles", name: "Hoteles y Posadas", icon: hotelesIcon.url },
-  { slug: "comida-rapida", name: "Comida Rápida y Restaurantes" },
-  { slug: "moda", name: "Moda y Accesorios" },
+  { slug: "comida-rapida", name: "Comida Rápida y Restaurantes", icon: comidaRapidaIcon.url },
+  { slug: "moda", name: "Moda y Accesorios", icon: modaIcon.url },
   { slug: "belleza", name: "Belleza y Cuidado Personal" },
   { slug: "servicios-profesionales", name: "Servicios Profesionales" },
   { slug: "hogar", name: "Hogar y Limpieza" },
