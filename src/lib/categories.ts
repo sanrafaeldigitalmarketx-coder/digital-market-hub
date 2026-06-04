@@ -5,6 +5,8 @@ import farmaciasIcon from "@/assets/categories/farmacias.png.asset.json";
 import centrosMedicosIcon from "@/assets/categories/centros-medicos.png.asset.json";
 import laboratoriosIcon from "@/assets/categories/laboratorios.png.asset.json";
 import hotelesIcon from "@/assets/categories/hoteles.png.asset.json";
+import comidaRapidaIcon from "@/assets/categories/comida-rapida.png.asset.json";
+import modaIcon from "@/assets/categories/moda.png.asset.json";
 
 export type Category = {
   slug: string;
