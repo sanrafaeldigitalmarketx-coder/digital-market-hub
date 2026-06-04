@@ -3,6 +3,7 @@ import ferreteriaIcon from "@/assets/categories/ferreteria.png.asset.json";
 import repuestosIcon from "@/assets/categories/repuestos.png.asset.json";
 import farmaciasIcon from "@/assets/categories/farmacias.png.asset.json";
 import centrosMedicosIcon from "@/assets/categories/centros-medicos.png.asset.json";
+import laboratoriosIcon from "@/assets/categories/laboratorios.png.asset.json";
 
 export type Category = {
   slug: string;
