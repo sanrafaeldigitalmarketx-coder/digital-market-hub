@@ -17,7 +17,7 @@ export const CATEGORIES: Category[] = [
   { slug: "repuestos", name: "Repuestos y Accesorios", icon: repuestosIcon.url },
   { slug: "farmacias", name: "Farmacias", icon: farmaciasIcon.url },
   { slug: "centros-medicos", name: "Centros Médicos", icon: centrosMedicosIcon.url },
-  { slug: "laboratorios", name: "Laboratorios Clínicos" },
+  { slug: "laboratorios", name: "Laboratorios Clínicos", icon: laboratoriosIcon.url },
   { slug: "hoteles", name: "Hoteles y Posadas" },
   { slug: "comida-rapida", name: "Comida Rápida y Restaurantes" },
   { slug: "moda", name: "Moda y Accesorios" },
