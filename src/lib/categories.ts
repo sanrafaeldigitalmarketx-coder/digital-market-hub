@@ -10,6 +10,10 @@ import modaIcon from "@/assets/categories/moda.png.asset.json";
 import bellezaIcon from "@/assets/categories/belleza.png.asset.json";
 import serviciosProfesionalesIcon from "@/assets/categories/servicios-profesionales.png.asset.json";
 import hogarIcon from "@/assets/categories/hogar.png.asset.json";
+import tecnologiaIcon from "@/assets/categories/tecnologia.png.asset.json";
+import transporteIcon from "@/assets/categories/transporte.png.asset.json";
+import mascotasIcon from "@/assets/categories/mascotas.png.asset.json";
+import generalesIcon from "@/assets/categories/generales.png.asset.json";
 
 export type Category = {
   slug: string;
@@ -30,10 +34,10 @@ export const CATEGORIES: Category[] = [
   { slug: "belleza", name: "Belleza y Cuidado Personal", icon: bellezaIcon.url },
   { slug: "servicios-profesionales", name: "Servicios Profesionales", icon: serviciosProfesionalesIcon.url },
   { slug: "hogar", name: "Hogar y Limpieza", icon: hogarIcon.url },
-  { slug: "tecnologia", name: "Tecnología y Electrónica" },
-  { slug: "transporte", name: "Transporte y Delivery" },
-  { slug: "mascotas", name: "Mascotas" },
-  { slug: "generales", name: "Comercios Generales" },
+  { slug: "tecnologia", name: "Tecnología y Electrónica", icon: tecnologiaIcon.url },
+  { slug: "transporte", name: "Transporte y Delivery", icon: transporteIcon.url },
+  { slug: "mascotas", name: "Mascotas", icon: mascotasIcon.url },
+  { slug: "generales", name: "Comercios Generales", icon: generalesIcon.url },
 ];
 
 export function getCategoryBySlug(slug: string): Category | undefined {
