@@ -5,10 +5,6 @@ export type RatingTarget = "negocio" | "producto";
 
 export type RatingSummary = { average: number; count: number };
 
-const tableFor = (t: RatingTarget) =>
-  t === "negocio" ? "ratings_negocios" : "ratings_productos";
-const fkFor = (t: RatingTarget) => (t === "negocio" ? "negocio_id" : "producto_id");
-
 export function useRatingSummary(target: RatingTarget, id?: string | null) {
   const [summary, setSummary] = useState<RatingSummary>({ average: 0, count: 0 });
   const [loading, setLoading] = useState(false);
@@ -16,14 +12,14 @@ export function useRatingSummary(target: RatingTarget, id?: string | null) {
   const refresh = useCallback(async () => {
     if (!id) return;
     setLoading(true);
-    const { data, error } = await supabase
-      .from(tableFor(target))
-      .select("estrellas")
-      .eq(fkFor(target), id);
-    if (!error && data) {
-      const count = data.length;
+    const res =
+      target === "negocio"
+        ? await supabase.from("ratings_negocios").select("estrellas").eq("negocio_id", id)
+        : await supabase.from("ratings_productos").select("estrellas").eq("producto_id", id);
+    if (!res.error && res.data) {
+      const count = res.data.length;
       const average = count
-        ? data.reduce((a, r) => a + (r.estrellas as number), 0) / count
+        ? res.data.reduce((a, r) => a + (r.estrellas as number), 0) / count
         : 0;
       setSummary({ average, count });
     }
@@ -43,7 +39,14 @@ export async function submitRating(
   estrellas: number,
   comentario: string,
 ) {
-  const payload = { estrellas, comentario: comentario.trim() || null, [fkFor(target)]: id };
-  const { error } = await supabase.from(tableFor(target)).insert(payload);
+  const text = comentario.trim() || null;
+  const { error } =
+    target === "negocio"
+      ? await supabase
+          .from("ratings_negocios")
+          .insert({ negocio_id: id, estrellas, comentario: text })
+      : await supabase
+          .from("ratings_productos")
+          .insert({ producto_id: id, estrellas, comentario: text });
   if (error) throw error;
 }
