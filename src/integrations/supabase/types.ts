@@ -14,7 +14,141 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      negocios: {
+        Row: {
+          categoria: string | null
+          created_at: string
+          descripcion: string | null
+          direccion: string | null
+          id: string
+          imagen: string | null
+          nombre: string
+          telefono: string | null
+        }
+        Insert: {
+          categoria?: string | null
+          created_at?: string
+          descripcion?: string | null
+          direccion?: string | null
+          id?: string
+          imagen?: string | null
+          nombre: string
+          telefono?: string | null
+        }
+        Update: {
+          categoria?: string | null
+          created_at?: string
+          descripcion?: string | null
+          direccion?: string | null
+          id?: string
+          imagen?: string | null
+          nombre?: string
+          telefono?: string | null
+        }
+        Relationships: []
+      }
+      productos: {
+        Row: {
+          created_at: string
+          descripcion: string | null
+          id: string
+          imagen: string | null
+          negocio_id: string | null
+          nombre: string
+          precio: number | null
+        }
+        Insert: {
+          created_at?: string
+          descripcion?: string | null
+          id?: string
+          imagen?: string | null
+          negocio_id?: string | null
+          nombre: string
+          precio?: number | null
+        }
+        Update: {
+          created_at?: string
+          descripcion?: string | null
+          id?: string
+          imagen?: string | null
+          negocio_id?: string | null
+          nombre?: string
+          precio?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "productos_negocio_id_fkey"
+            columns: ["negocio_id"]
+            isOneToOne: false
+            referencedRelation: "negocios"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ratings_negocios: {
+        Row: {
+          comentario: string | null
+          estrellas: number
+          fecha: string
+          id: string
+          negocio_id: string
+        }
+        Insert: {
+          comentario?: string | null
+          estrellas: number
+          fecha?: string
+          id?: string
+          negocio_id: string
+        }
+        Update: {
+          comentario?: string | null
+          estrellas?: number
+          fecha?: string
+          id?: string
+          negocio_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ratings_negocios_negocio_id_fkey"
+            columns: ["negocio_id"]
+            isOneToOne: false
+            referencedRelation: "negocios"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ratings_productos: {
+        Row: {
+          comentario: string | null
+          estrellas: number
+          fecha: string
+          id: string
+          producto_id: string
+        }
+        Insert: {
+          comentario?: string | null
+          estrellas: number
+          fecha?: string
+          id?: string
+          producto_id: string
+        }
+        Update: {
+          comentario?: string | null
+          estrellas?: number
+          fecha?: string
+          id?: string
+          producto_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ratings_productos_producto_id_fkey"
+            columns: ["producto_id"]
+            isOneToOne: false
+            referencedRelation: "productos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
