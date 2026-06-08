@@ -24,6 +24,7 @@ import { Route as AgregarComercioRouteImport } from './routes/agregar-comercio'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NoticiasSlugRouteImport } from './routes/noticias.$slug'
 import { Route as CategoriasSlugRouteImport } from './routes/categorias.$slug'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const TransparenciaRoute = TransparenciaRouteImport.update({
   id: '/transparencia',
@@ -100,6 +101,11 @@ const CategoriasSlugRoute = CategoriasSlugRouteImport.update({
   path: '/categorias/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
   '/transparencia': typeof TransparenciaRoute
+  '/api/chat': typeof ApiChatRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
   '/noticias/$slug': typeof NoticiasSlugRoute
 }
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
   '/transparencia': typeof TransparenciaRoute
+  '/api/chat': typeof ApiChatRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
   '/noticias/$slug': typeof NoticiasSlugRoute
 }
@@ -150,6 +158,7 @@ export interface FileRoutesById {
   '/servicios': typeof ServiciosRoute
   '/terminos': typeof TerminosRoute
   '/transparencia': typeof TransparenciaRoute
+  '/api/chat': typeof ApiChatRoute
   '/categorias/$slug': typeof CategoriasSlugRoute
   '/noticias/$slug': typeof NoticiasSlugRoute
 }
@@ -169,6 +178,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/terminos'
     | '/transparencia'
+    | '/api/chat'
     | '/categorias/$slug'
     | '/noticias/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -186,6 +196,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/terminos'
     | '/transparencia'
+    | '/api/chat'
     | '/categorias/$slug'
     | '/noticias/$slug'
   id:
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/terminos'
     | '/transparencia'
+    | '/api/chat'
     | '/categorias/$slug'
     | '/noticias/$slug'
   fileRoutesById: FileRoutesById
@@ -221,6 +233,7 @@ export interface RootRouteChildren {
   ServiciosRoute: typeof ServiciosRoute
   TerminosRoute: typeof TerminosRoute
   TransparenciaRoute: typeof TransparenciaRoute
+  ApiChatRoute: typeof ApiChatRoute
   CategoriasSlugRoute: typeof CategoriasSlugRoute
 }
 
@@ -331,6 +344,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoriasSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -360,8 +380,19 @@ const rootRouteChildren: RootRouteChildren = {
   ServiciosRoute: ServiciosRoute,
   TerminosRoute: TerminosRoute,
   TransparenciaRoute: TransparenciaRoute,
+  ApiChatRoute: ApiChatRoute,
   CategoriasSlugRoute: CategoriasSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
