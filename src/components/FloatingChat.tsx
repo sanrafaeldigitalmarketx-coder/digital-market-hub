@@ -10,7 +10,7 @@ export function FloatingChat() {
     {
       role: "assistant",
       content:
-        "¡Hola! Soy el asistente de SanRafael DigitalMarket. Pregúntame por negocios, productos, precios, categorías o calificaciones.",
+        "¡Hola! Soy SanRafi, tu asistente de SanRafael DigitalMarket. Pregúntame por negocios, productos, precios, categorías, planes o calificaciones.",
     },
   ]);
   const [typing, setTyping] = useState(false);
@@ -68,8 +68,9 @@ export function FloatingChat() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          aria-label="Abrir chat"
+          aria-label="Abrir SanRafi"
           className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg transition-transform hover:-translate-y-1"
+          title="SanRafi · Asistente inteligente"
           style={{
             background: "var(--gradient-brand)",
             boxShadow: "0 0 24px -4px var(--brand-blue), 0 10px 30px -10px var(--brand-purple)",
@@ -87,8 +88,8 @@ export function FloatingChat() {
               style={{ background: "var(--gradient-brand)" }}
             >
               <div>
-                <div className="text-sm font-semibold">Asistente DigitalMarket</div>
-                <div className="text-xs opacity-90">San Rafael de Onoto</div>
+                <div className="text-sm font-semibold">SanRafi</div>
+                <div className="text-xs opacity-90">Asistente inteligente</div>
               </div>
               <button
                 type="button"

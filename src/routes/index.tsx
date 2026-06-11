@@ -12,16 +12,16 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "SanRafael DigitalMarket — Marketplace digital moderno" },
+      { title: "SanRafael DigitalMarket — Marketplace digital privado" },
       {
         name: "description",
         content:
-          "Plataforma moderna para negocios, servicios y productos digitales en SanRafael. Conecta comerciantes y clientes en un solo lugar.",
+          "Plataforma privada para descubrir emprendedores, negocios y empresas. Catálogos, productos, calificaciones y atención directa por WhatsApp.",
       },
       { property: "og:title", content: "SanRafael DigitalMarket" },
       {
         property: "og:description",
-        content: "Tu plataforma moderna para negocios, servicios y productos digitales.",
+        content: "Descubre productos, negocios y emprendedores en un solo lugar.",
       },
     ],
   }),
@@ -147,9 +147,12 @@ function Index() {
           }}
         >
           <SectionTitle eyebrow="Acerca de" title="Sobre SanRafael DigitalMarket" />
-          <div className="mt-8 min-h-[140px] rounded-xl border border-dashed border-border/70 p-8 text-sm text-muted-foreground">
-            Espacio reservado para tu texto descriptivo.
-          </div>
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Plataforma privada que conecta emprendedores, negocios locales y empresas con
+            clientes interesados en sus productos y servicios. Las publicaciones son revisadas y
+            cargadas directamente por el administrador para mantener una experiencia limpia, sin
+            spam y con diseño cuidado.
+          </p>
         </div>
       </section>
 
@@ -164,7 +167,7 @@ function Index() {
         <SectionTitle
           eyebrow="Catálogo"
           title="Productos destacados"
-          description="Tarjetas vacías listas para llenar con tus productos."
+          description="Una selección de productos disponibles en la plataforma."
         />
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 4 }).map((_, i) => (
@@ -173,12 +176,26 @@ function Index() {
         </div>
       </section>
 
-      {/* COMERCIANTES */}
+      {/* MÁS PRODUCTOS POR CONOCER */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle
-          eyebrow="Comerciantes"
-          title="Comercios en la plataforma"
-          description="Perfiles de comercio listos para personalizar."
+          eyebrow="Recomendados"
+          title="Más productos por conocer"
+          description="Descubre nuevas opciones que se incorporan cada semana al catálogo."
+        />
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <ProductCard key={`mas-${i}`} />
+          ))}
+        </div>
+      </section>
+
+      {/* COMERCIOS */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionTitle
+          eyebrow="Comercios"
+          title="Negocios en la plataforma"
+          description="Perfiles activos en SanRafael DigitalMarket."
         />
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 3 }).map((_, i) => (

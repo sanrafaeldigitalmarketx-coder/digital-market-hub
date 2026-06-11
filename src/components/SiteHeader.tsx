@@ -3,12 +3,6 @@ import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Inicio", to: "/" as const },
-  { label: "Noticias", to: "/noticias" as const },
-  { label: "Cultura y Turismo", to: "/cultura" as const },
-  { label: "Institucional", to: "/institucional" as const },
-  { label: "Transparencia", to: "/transparencia" as const },
-  { label: "Mapa", to: "/mapa" as const },
-  { label: "Catálogo", to: "/catalogo" as const },
   { label: "Servicios", to: "/servicios" as const },
   { label: "Planes", to: "/planes" as const },
   { label: "Contacto", to: "/contacto" as const },
