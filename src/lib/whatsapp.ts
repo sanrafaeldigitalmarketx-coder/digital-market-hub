@@ -1,10 +1,17 @@
-// Contacto institucional pendiente.
-// El número y el correo serán proporcionados oficialmente
-// por la Alcaldía del Municipio San Rafael de Onoto.
-export const INSTITUTIONAL_PENDING =
-  "Información pendiente de cargar por la Alcaldía del Municipio San Rafael de Onoto.";
+// Contacto privado del administrador de SanRafael DigitalMarket.
+// Responsable: Jovany Gonzalez.
+export const ADMIN_NAME = "Jovany Gonzalez";
+export const ADMIN_EMAIL = "sanrafaeldigitalmarketx@gmail.com";
+export const ADMIN_DESIGN_EMAIL = "jovanygonzalez.gfxdesigner@gmail.com";
+export const ADMIN_WHATSAPP_DISPLAY = "+58 416-1334998";
+export const ADMIN_WHATSAPP_NUMBER = "584161334998";
 
-// Mantiene la firma usada en componentes existentes pero deshabilitada.
-export function getWhatsAppUrl(_message?: string): string {
-  return "#";
+// Mensaje mostrado en tooltips para tarjetas/productos hasta que el admin las publique.
+export const INSTITUTIONAL_PENDING =
+  "Para publicar tu negocio o producto, contacta al administrador por WhatsApp.";
+
+export function getWhatsAppUrl(message?: string): string {
+  const base = `https://wa.me/${ADMIN_WHATSAPP_NUMBER}`;
+  if (!message) return base;
+  return `${base}?text=${encodeURIComponent(message)}`;
 }

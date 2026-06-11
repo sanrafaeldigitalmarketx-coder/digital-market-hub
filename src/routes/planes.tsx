@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/planes")({
   component: PlanesPage,
@@ -10,12 +12,12 @@ export const Route = createFileRoute("/planes")({
       {
         name: "description",
         content:
-          "Planes y tarifas pendientes de cargar por la Alcaldía del Municipio San Rafael de Onoto.",
+          "Planes para emprendedores, negocios locales y empresas. Catálogos, fotos, diseño, geolocalización y prioridad según el plan.",
       },
       { property: "og:title", content: "Planes y Tarifas — SanRafael DigitalMarket" },
       {
         property: "og:description",
-        content: "Planes pendientes de definir por la Alcaldía del Municipio.",
+        content: "Elige el plan ideal para publicar tu negocio en SanRafael DigitalMarket.",
       },
     ],
   }),
@@ -23,29 +25,138 @@ export const Route = createFileRoute("/planes")({
 
 type Plan = {
   name: string;
+  price: string;
   pitch: string;
   features: string[];
   highlight?: boolean;
 };
 
 const emprendedores: Plan[] = [
-  { name: "Plan Básico", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
-  { name: "Plan Estándar", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
-  { name: "Plan Premium", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"], highlight: true },
-  { name: "Plan Élite", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
+  {
+    name: "Básico",
+    price: "$15",
+    pitch: "Ideal para empezar a mostrar tu emprendimiento.",
+    features: [
+      "1 catálogo",
+      "4 productos",
+      "2 fotos por producto",
+      "Sin diseño incluido",
+      "Sin prioridad",
+      "Sin geolocalización",
+    ],
+  },
+  {
+    name: "Estándar",
+    price: "$20",
+    pitch: "Más espacio y mejor posición en la plataforma.",
+    features: [
+      "2 catálogos",
+      "8 productos",
+      "Fotos ilimitadas",
+      "Mejor posición",
+      "Sin diseño incluido",
+      "Sin geolocalización",
+    ],
+  },
+  {
+    name: "Premium",
+    price: "$25",
+    pitch: "Todo lo necesario para destacar como emprendedor.",
+    features: [
+      "Catálogos ilimitados",
+      "Productos ilimitados",
+      "Diseño incluido",
+      "Tarjeta grande",
+      "Prioridad",
+      "Geolocalización básica",
+    ],
+    highlight: true,
+  },
 ];
 
-const comercios: Plan[] = [
-  { name: "Plan Básico", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente"] },
-  { name: "Plan Estándar", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
-  { name: "Plan Premium", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"], highlight: true },
-  { name: "Plan Élite", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
+const negocios: Plan[] = [
+  {
+    name: "Básico",
+    price: "$25",
+    pitch: "Presencia esencial para tu negocio local.",
+    features: [
+      "3 catálogos",
+      "6 productos",
+      "Sin diseño incluido",
+      "Sin prioridad",
+      "Sin geolocalización",
+    ],
+  },
+  {
+    name: "Estándar",
+    price: "$35",
+    pitch: "Más catálogos, diseño básico y mejor posición.",
+    features: [
+      "5 catálogos",
+      "12 productos",
+      "Diseño básico",
+      "Mejor posición",
+      "Sin geolocalización",
+    ],
+  },
+  {
+    name: "Premium",
+    price: "$45",
+    pitch: "Aparición en portada y geolocalización inteligente.",
+    features: [
+      "Catálogos ilimitados",
+      "Productos ilimitados",
+      "Diseño completo",
+      "Geolocalización inteligente",
+      "Recomendados",
+      "Banners",
+      "Prioridad total",
+      "Aparición en portada",
+    ],
+    highlight: true,
+  },
 ];
 
 const empresas: Plan[] = [
-  { name: "Plan Estándar", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente"] },
-  { name: "Plan Premium", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"], highlight: true },
-  { name: "Plan Élite", pitch: "Información pendiente de cargar.", features: ["Pendiente", "Pendiente", "Pendiente"] },
+  {
+    name: "Estándar",
+    price: "$50",
+    pitch: "Catálogos ilimitados con diseño básico y estadísticas.",
+    features: [
+      "Catálogos ilimitados",
+      "Productos ilimitados",
+      "Diseño básico",
+      "Estadísticas básicas",
+    ],
+  },
+  {
+    name: "Premium",
+    price: "$60",
+    pitch: "Diseño completo, banners y prioridad total.",
+    features: [
+      "Diseño completo",
+      "Banners",
+      "Aparición en portada",
+      "Geolocalización inteligente",
+      "Recomendados",
+      "Prioridad total",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Élite",
+    price: "$70",
+    pitch: "El paquete máximo, con banner exclusivo y campaña mensual.",
+    features: [
+      "Todo lo del Premium",
+      "Banner exclusivo en portada",
+      "Banner exclusivo en categorías",
+      "Tarjeta gigante",
+      "Campaña mensual",
+      "Publicación en Novedades",
+      "Revisión visual completa",
+    ],
+  },
 ];
 
 function CheckIcon() {
@@ -69,7 +180,8 @@ function CheckIcon() {
   );
 }
 
-function PlanCard({ plan }: { plan: Plan }) {
+function PlanCard({ plan, segment }: { plan: Plan; segment: string }) {
+  const message = `Hola Jovany, me interesa el plan ${plan.name} (${plan.price}) de ${segment}.`;
   return (
     <article
       className="card-surface relative flex flex-col p-6 transition-all hover:-translate-y-1"
@@ -89,29 +201,46 @@ function PlanCard({ plan }: { plan: Plan }) {
           className="absolute -top-3 right-5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
           style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-glow-purple)" }}
         >
-          Destacado
+          Recomendado
         </span>
       )}
 
       <h3 className="text-lg font-semibold">{plan.name}</h3>
       <div className="mt-2 flex items-baseline gap-1">
         <span
-          className="text-2xl font-bold tracking-tight text-muted-foreground"
+          className="text-4xl font-bold tracking-tight"
+          style={{
+            backgroundImage: "var(--gradient-brand)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+          }}
         >
-          Tarifa pendiente
+          {plan.price}
         </span>
+        <span className="text-xs text-muted-foreground">/ mes</span>
       </div>
 
       <p className="mt-3 text-sm text-muted-foreground">{plan.pitch}</p>
 
-      <ul className="mt-5 space-y-2.5 text-sm">
+      <ul className="mt-5 flex-1 space-y-2.5 text-sm">
         {plan.features.map((f, i) => (
           <li key={i} className="flex items-start gap-2.5">
             <CheckIcon />
-            <span className="text-muted-foreground">{f}</span>
+            <span className="text-foreground/90">{f}</span>
           </li>
         ))}
       </ul>
+
+      <a
+        href={getWhatsAppUrl(message)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 inline-flex items-center justify-center gap-2 rounded-full py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+        style={{ background: "var(--gradient-brand)" }}
+      >
+        <MessageCircle size={16} /> Contratar plan
+      </a>
     </article>
   );
 }
@@ -127,12 +256,9 @@ function Block({
   title: string;
   description: string;
   plans: Plan[];
-  cols: "3" | "4";
+  cols: "3";
 }) {
-  const grid =
-    cols === "4"
-      ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+  const grid = cols === "3" ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "";
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
@@ -152,7 +278,7 @@ function Block({
 
       <div className={`mt-10 grid gap-6 ${grid}`}>
         {plans.map((p) => (
-          <PlanCard key={p.name} plan={p} />
+          <PlanCard key={p.name} plan={p} segment={title} />
         ))}
       </div>
     </section>
@@ -181,7 +307,7 @@ function PlanesPage() {
             className="mt-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl"
             style={{ animation: "var(--animate-fade-up)" }}
           >
-            Planes{" "}
+            Elige tu{" "}
             <span
               style={{
                 backgroundImage: "var(--gradient-brand)",
@@ -190,12 +316,12 @@ function PlanesPage() {
                 color: "transparent",
               }}
             >
-              institucionales
+              plan ideal
             </span>
           </h1>
           <p className="mt-5 text-base text-muted-foreground sm:text-lg">
-            Información pendiente de cargar por la Alcaldía del Municipio San Rafael de
-            Onoto.
+            Publicaciones controladas por el administrador. Solo escribe por WhatsApp y enviamos
+            tu material a producción.
           </p>
         </div>
       </section>
@@ -203,28 +329,28 @@ function PlanesPage() {
       <Block
         eyebrow="Bloque 1"
         title="Emprendedores Independientes"
-        description="Información pendiente de cargar por la Alcaldía del Municipio."
+        description="Para vendedores particulares y proyectos personales."
         plans={emprendedores}
-        cols="4"
+        cols="3"
       />
 
       <Block
         eyebrow="Bloque 2"
-        title="Comerciantes / Negocios Locales"
-        description="Información pendiente de cargar por la Alcaldía del Municipio."
-        plans={comercios}
-        cols="4"
+        title="Negocios Locales"
+        description="Para comercios establecidos con presencia física o digital."
+        plans={negocios}
+        cols="3"
       />
 
       <Block
         eyebrow="Bloque 3"
         title="Empresas Grandes"
-        description="Información pendiente de cargar por la Alcaldía del Municipio."
+        description="Para marcas con catálogos amplios y campañas activas."
         plans={empresas}
         cols="3"
       />
 
-      <section className="mx-auto max-w-3xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-3xl px-4 pb-24 pt-4 sm:px-6 lg:px-8">
         <div
           className="card-surface p-8 text-center sm:p-10"
           style={{
@@ -233,20 +359,19 @@ function PlanesPage() {
             borderColor: "oklch(0.62 0.22 285 / 0.35)",
           }}
         >
-          <p className="text-base leading-relaxed text-foreground">
-            Información pendiente de cargar por la Alcaldía del Municipio San Rafael de
-            Onoto.
+          <h3 className="text-xl font-semibold sm:text-2xl">¿Tienes dudas sobre qué plan elegir?</h3>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Conversa directamente con el administrador y te recomendamos el plan que mejor se
+            ajusta a tu negocio.
           </p>
-
-          <button
-            type="button"
-            disabled
-            aria-disabled="true"
-            className="btn-glow mt-6 inline-flex cursor-not-allowed text-base opacity-60"
-            title="Información pendiente de cargar por la Alcaldía del Municipio San Rafael de Onoto."
+          <a
+            href={getWhatsAppUrl("Hola Jovany, necesito ayuda para elegir un plan.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-glow mt-6 inline-flex items-center gap-2"
           >
-            Contacto institucional pendiente
-          </button>
+            <MessageCircle size={18} /> Contactar al administrador
+          </a>
         </div>
       </section>
 
