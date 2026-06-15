@@ -205,11 +205,11 @@ function Index() {
       </section>
 
       {/* MÁS PRODUCTOS POR CONOCER */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section id="mas-productos" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle
-          eyebrow="Recomendados"
+          eyebrow="Premium"
           title="Más productos por conocer"
-          description="Descubre nuevas opciones que se incorporan cada semana al catálogo."
+          description="Ofertas, promociones y productos destacados de negocios Premium y Élite."
         />
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 4 }).map((_, i) => (
