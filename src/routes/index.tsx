@@ -127,20 +127,25 @@ function Index() {
       <section id="categorias" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Categorías"
-          title="Categorías destacadas"
-          description="Espacios listos para tus categorías personalizadas."
+          title="Explorar por categorías"
+          description="¡Explora libremente nuestro amplio mercado!"
         />
         <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
           {CATEGORIES.map((c) => (
             <CategoryCard key={c.slug} name={c.name} slug={c.slug} icon={c.icon} />
           ))}
         </div>
+        <div className="mt-10 flex justify-center">
+          <a href="#mas-productos" className="btn-glow">
+            Más productos por conocer
+          </a>
+        </div>
       </section>
 
       {/* INFORMATIVA */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div
-          className="card-surface mx-auto max-w-4xl p-10 text-center sm:p-14"
+          className="card-surface mx-auto max-w-4xl p-10 sm:p-14"
           style={{
             background:
               "linear-gradient(135deg, oklch(0.21 0.008 280), oklch(0.18 0.012 285))",
@@ -148,11 +153,34 @@ function Index() {
         >
           <SectionTitle eyebrow="Acerca de" title="Sobre SanRafael DigitalMarket" />
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Plataforma privada que conecta emprendedores, negocios locales y empresas con
-            clientes interesados en sus productos y servicios. Las publicaciones son revisadas y
-            cargadas directamente por el administrador para mantener una experiencia limpia, sin
-            spam y con diseño cuidado.
+            SanRafael DigitalMarket es un espacio digital publicitario privado diseñado para
+            impulsar la presencia de emprendedores, negocios locales y empresas dentro del
+            municipio. Nuestro objetivo es ofrecer una plataforma moderna, organizada y
+            visualmente profesional donde cada comercio pueda mostrar sus productos, servicios y
+            catálogos de forma clara y atractiva. Todas las publicaciones pasan por un proceso de
+            revisión y diseño para garantizar una experiencia limpia, sin spam y con una
+            presentación cuidada. SanRafael DigitalMarket no es un marketplace tradicional: es un
+            sistema comercial privado que conecta a los negocios con clientes reales, mostrando el
+            verdadero potencial económico de nuestra comunidad.
           </p>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-2xl border border-border/60 bg-[var(--surface-elevated)] p-6">
+              <h3 className="text-lg font-semibold">Misión</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Impulsar el crecimiento comercial del municipio mediante una plataforma digital
+                organizada, moderna y profesional que conecte negocios reales con clientes reales.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-[var(--surface-elevated)] p-6">
+              <h3 className="text-lg font-semibold">Visión</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Convertirnos en el principal espacio digital publicitario del municipio, ofreciendo
+                herramientas avanzadas, diseño profesional y un sistema limpio, confiable y
+                escalable.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
