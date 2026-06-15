@@ -78,10 +78,10 @@ function Index() {
           </span>
 
           <h1
-            className="mt-6 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
             style={{ animation: "var(--animate-fade-up)" }}
           >
-            SanRafael{" "}
+            Espacio digital publicitario de{" "}
             <span
               style={{
                 backgroundImage: "var(--gradient-brand)",
@@ -90,7 +90,7 @@ function Index() {
                 color: "transparent",
               }}
             >
-              DigitalMarket
+              San Rafael de Onoto
             </span>
           </h1>
 
@@ -98,7 +98,7 @@ function Index() {
             className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg"
             style={{ animation: "var(--animate-fade-up)", animationDelay: "0.1s" }}
           >
-            Tu plataforma moderna para negocios, servicios y productos digitales.
+            La plataforma que te muestra el potencial comercial en nuestro municipio.
           </p>
 
           <div
@@ -106,7 +106,7 @@ function Index() {
             style={{ animation: "var(--animate-fade-up)", animationDelay: "0.2s" }}
           >
             <a href="#categorias" className="btn-glow">
-              Explorar marketplace
+              Explorar categorías
             </a>
             <Link
               to="/planes"
@@ -127,20 +127,25 @@ function Index() {
       <section id="categorias" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Categorías"
-          title="Categorías destacadas"
-          description="Espacios listos para tus categorías personalizadas."
+          title="Explorar por categorías"
+          description="¡Explora libremente nuestro amplio mercado!"
         />
         <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
           {CATEGORIES.map((c) => (
             <CategoryCard key={c.slug} name={c.name} slug={c.slug} icon={c.icon} />
           ))}
         </div>
+        <div className="mt-10 flex justify-center">
+          <a href="#mas-productos" className="btn-glow">
+            Más productos por conocer
+          </a>
+        </div>
       </section>
 
       {/* INFORMATIVA */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div
-          className="card-surface mx-auto max-w-4xl p-10 text-center sm:p-14"
+          className="card-surface mx-auto max-w-4xl p-10 sm:p-14"
           style={{
             background:
               "linear-gradient(135deg, oklch(0.21 0.008 280), oklch(0.18 0.012 285))",
@@ -148,11 +153,34 @@ function Index() {
         >
           <SectionTitle eyebrow="Acerca de" title="Sobre SanRafael DigitalMarket" />
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Plataforma privada que conecta emprendedores, negocios locales y empresas con
-            clientes interesados en sus productos y servicios. Las publicaciones son revisadas y
-            cargadas directamente por el administrador para mantener una experiencia limpia, sin
-            spam y con diseño cuidado.
+            SanRafael DigitalMarket es un espacio digital publicitario privado diseñado para
+            impulsar la presencia de emprendedores, negocios locales y empresas dentro del
+            municipio. Nuestro objetivo es ofrecer una plataforma moderna, organizada y
+            visualmente profesional donde cada comercio pueda mostrar sus productos, servicios y
+            catálogos de forma clara y atractiva. Todas las publicaciones pasan por un proceso de
+            revisión y diseño para garantizar una experiencia limpia, sin spam y con una
+            presentación cuidada. SanRafael DigitalMarket no es un marketplace tradicional: es un
+            sistema comercial privado que conecta a los negocios con clientes reales, mostrando el
+            verdadero potencial económico de nuestra comunidad.
           </p>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-2xl border border-border/60 bg-[var(--surface-elevated)] p-6">
+              <h3 className="text-lg font-semibold">Misión</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Impulsar el crecimiento comercial del municipio mediante una plataforma digital
+                organizada, moderna y profesional que conecte negocios reales con clientes reales.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-[var(--surface-elevated)] p-6">
+              <h3 className="text-lg font-semibold">Visión</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Convertirnos en el principal espacio digital publicitario del municipio, ofreciendo
+                herramientas avanzadas, diseño profesional y un sistema limpio, confiable y
+                escalable.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -177,11 +205,11 @@ function Index() {
       </section>
 
       {/* MÁS PRODUCTOS POR CONOCER */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section id="mas-productos" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionTitle
-          eyebrow="Recomendados"
+          eyebrow="Premium"
           title="Más productos por conocer"
-          description="Descubre nuevas opciones que se incorporan cada semana al catálogo."
+          description="Ofertas, promociones y productos destacados de negocios Premium y Élite."
         />
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 4 }).map((_, i) => (
