@@ -6,8 +6,6 @@ const navLinks = [
   { label: "Servicios", to: "/servicios" as const },
   { label: "Planes", to: "/planes" as const },
   { label: "Contacto", to: "/contacto" as const },
-  { label: "Términos", to: "/terminos" as const },
-  { label: "Privacidad", to: "/privacidad" as const },
 ];
 
 export function SiteHeader() {
