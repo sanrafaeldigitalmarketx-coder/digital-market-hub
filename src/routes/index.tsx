@@ -78,10 +78,10 @@ function Index() {
           </span>
 
           <h1
-            className="mt-6 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
             style={{ animation: "var(--animate-fade-up)" }}
           >
-            SanRafael{" "}
+            Espacio digital publicitario de{" "}
             <span
               style={{
                 backgroundImage: "var(--gradient-brand)",
@@ -90,7 +90,7 @@ function Index() {
                 color: "transparent",
               }}
             >
-              DigitalMarket
+              San Rafael de Onoto
             </span>
           </h1>
 
@@ -98,7 +98,7 @@ function Index() {
             className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg"
             style={{ animation: "var(--animate-fade-up)", animationDelay: "0.1s" }}
           >
-            Tu plataforma moderna para negocios, servicios y productos digitales.
+            La plataforma que te muestra el potencial comercial en nuestro municipio.
           </p>
 
           <div
@@ -106,7 +106,7 @@ function Index() {
             style={{ animation: "var(--animate-fade-up)", animationDelay: "0.2s" }}
           >
             <a href="#categorias" className="btn-glow">
-              Explorar marketplace
+              Explorar categorías
             </a>
             <Link
               to="/planes"
